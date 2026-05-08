@@ -4,15 +4,16 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// CORS fix
+app.use(cors({
+  origin: '*'
+}));
+
 app.use(express.json());
 
 const pool = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 5432,
+  connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
 
@@ -30,7 +31,10 @@ app.get('/todos', async (req, res) => {
 
 app.post('/todos', async (req, res) => {
   const { title } = req.body;
-  const result = await pool.query('INSERT INTO todos (title) VALUES ($1) RETURNING *', [title]);
+  const result = await pool.query(
+    'INSERT INTO todos (title) VALUES ($1) RETURNING *',
+    [title]
+  );
   res.json(result.rows[0]);
 });
 
