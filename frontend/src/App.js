@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 500, margin: '40px auto', fontFamily: 'sans-serif' }}>
-      <h1>To-do List</h1>
+      <h1>To-Do List</h1>
       <div style={{ display: 'flex', gap: 8 }}>
         <input value={input} onChange={e => setInput(e.target.value)}
           placeholder="Add a task..." style={{ flex: 1, padding: 8 }} />
