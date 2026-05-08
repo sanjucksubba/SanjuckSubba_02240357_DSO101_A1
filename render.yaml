@@ -3,6 +3,7 @@ services:
     name: be-todo
     env: docker
     dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     envVars:
       - key: DATABASE_URL
         value: postgresql://tododb_jun9_user:kg3LfNlIN3HbwqYBBQ7164W9KC91OjiL@dpg-d7uppo9j2pic73c4vgfg-a/tododb_jun9
