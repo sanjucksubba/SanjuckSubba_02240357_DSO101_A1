@@ -5,7 +5,7 @@ services:
     dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: DATABASE_URL
-        value: your-internal-database-url-from-render
+        value: postgresql://tododb_jun9_user:kg3LfNlIN3HbwqYBBQ7164W9KC91OjiL@dpg-d7uppo9j2pic73c4vgfg-a/tododb_jun9
       - key: PORT
         value: 5000
 
